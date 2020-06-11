@@ -6,23 +6,43 @@ import styled from 'styled-components';
 
 function NavBarPage() {
 
- 
-    
+        const NavBarPageBlock = styled.div`   
+        display:flex;
+        background-color: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+        `;
+        const NavHeader = styled.div`
+        max-width: 1536px;
+        padding: 6px 6px;
+        width: 100%;
+        display: flex;
+        margin: auto;
+        `;
+
+        const NavLink= styled(Link)`
+        display:flex;
+        width:5% ;
+        padding-left: 20px;
+        color: black;
+        text-decoration: none;
+        &:hover {
+                cursor:pointer;
+            }
+        `;
+
+      
     return (
-        <div>
-            <ul>
-                <li>
-                    <Link to ="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/about">about</Link>
-                </li>
-            </ul>            
+        <>
+        <NavBarPageBlock>
+            <NavHeader>
+                  <NavLink to ="/">Home</NavLink> 
+                  <NavLink to="/about">about</NavLink>           
+        </NavHeader>
+        </NavBarPageBlock>
+        <Route path="/" component={LandingPage} exact={true} />
+        <Route path="/about" component={AboutPage} />
             
-            <Route path="/" component={LandingPage} exact={true} />
-            <Route path="/about" component={AboutPage}/>
-            
-        </div>
+        </>
     )
 }
 
